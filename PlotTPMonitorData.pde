@@ -7,7 +7,8 @@ with up to 6 numbers.  This code will map that data to whatever range you want a
 as a live data scrolling past in one window.  Example Arduino code is in comments at the bottom.
 
 I haven't cleaned this up yet, so think of it as an example.
-
+There may be something you have to do in Processing to get the loadFont to work below. Maybe
+something similar to adding a library in Arduino.  I can't remember offhand.
 -Scot
 
 */
