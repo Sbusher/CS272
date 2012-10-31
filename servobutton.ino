@@ -4,8 +4,11 @@ const int joystick_yPin = A2;
 Servo servo1;  // create servo object to control a servo 
 Servo servo2;  // create servo object to control a servo 
 const int buttonPin = 2;     // the number of the pushbutton pin Sam Wytoski
-const int Relay = 3;//relay digital pin 
+const int Relay = 3;//relay digital pin
+
+//function prototype
 boolean buttonPressed(int);
+void joystick();
 
 void setup(){
   pinMode(Relay, OUTPUT); //relay    
@@ -13,6 +16,12 @@ void setup(){
   servo1.attach(9);  // attaches the servo on pin 9 to the servo object. servo x Sam Wytoski's joystick
   servo2.attach(5);  // attaches the servo on pin 5 to the servo object. servo y Sam Wytoski's Joystick
   pinMode(buttonPin, INPUT); //Sam Wytoski's Joystick
+}
+Void loop(){
+  Joystick();
+  if (buttonPressed(buttonPin)){
+    //boolean is returned for button pressed but is not used at this time
+  }
 }
 
 void Joystick(){//Sam Wytoski's Joystick code 
@@ -32,14 +41,19 @@ boolean buttonPressed(int button){
     delay(5);
     if(digitalRead(button)==low){
       pressed=true;
+      //turn on relay to fire/turn on laser
+      digitalWrite(Relay,HIGH);
     }
   }
   if(!pressed){
       return(false);
   }
   While(digitalRead(button)==low){
-      
-    }
+   //waiting for button to be released    
+   joystick();//allow for more movement / aim to target :)
+  }
+  //Button is released, so turn of relay/laser
+  digitalWrite(Relay,LOW);
   return true;
 }
 
